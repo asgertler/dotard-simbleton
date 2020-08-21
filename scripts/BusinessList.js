@@ -62,7 +62,6 @@ document
             const foundBusiness = searchArray.find(business => {
                 return business.companyName.includes(keyPressEvent.target.value)
             });
-            console.log(foundBusiness);
 
             companySearchResultArticle.innerHTML = `
                 <h2>
@@ -70,12 +69,43 @@ document
                 </h2>
                 <section>
                 ${foundBusiness.addressFullStreet}
-
                 </section>
                 <section>
                 ${foundBusiness.addressCity},
                 ${foundBusiness.addressStateCode}
                 ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    });
+
+const agentSearchResultArticle = document.querySelector(".foundAgents")
+
+document
+    .querySelector("#agentSearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+
+            const searchArray = useBusinesses();
+
+            const foundAgent = searchArray.find(agent => {
+                return agent.purchasingAgent.nameFirst.includes(keyPressEvent.target.value) || agent.purchasingAgent.nameLast.includes(keyPressEvent.target.value)
+            });
+
+            agentSearchResultArticle.innerHTML = `
+                <h2>
+                ${foundAgent.purchasingAgent.nameFirst} ${foundAgent.purchasingAgent.nameLast}
+                </h2>
+                <section>
+                ${foundAgent.companyName}
+                </section>
+                <section>
+                ${foundAgent.addressFullStreet}
+                </section>
+                <section>
+                ${foundAgent.addressCity},
+                ${foundAgent.addressStateCode}
+                ${foundAgent.addressZipCode}
                 </section>
             `;
         }
