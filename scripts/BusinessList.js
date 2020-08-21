@@ -1,11 +1,10 @@
-import {useBusinesses} from "./BusinessProvider.js";
-import {newYorkBusinesses} from "./BusinessProvider.js";
-import {manufacturingBusinesses} from "./BusinessProvider.js";
-import {Business} from "./Business.js";
+import {useBusinesses, newYorkBusinesses, manufacturingBusinesses, agentNames} from "./BusinessProvider.js";
+import {Business, Agent} from "./Business.js";
 
 const contentTarget = document.querySelector(".business-list");
 const contentTargetNY = document.querySelector(".business-list-newYork");
 const contentTargetManufacturing = document.querySelector(".business-list-manufacturing");
+const contentTargetAgents = document.querySelector(".agent-list");
 
 export const BusinessList = () => {
     const businessArray = useBusinesses();
@@ -36,6 +35,17 @@ export const ManufacturingBusinessList = () => {
     businessArray.forEach(
         (businessObject) => {
             contentTargetManufacturing.innerHTML += Business(businessObject);
+        }
+    )
+};
+
+export const AgentList = () => {
+    const agentArray = agentNames;
+    contentTargetAgents.innerHTML = "<h2>Purchasing Agents</h2>"
+
+    agentArray.forEach(
+        (agentObject) => {
+            contentTargetAgents.innerHTML += Agent(agentObject);
         }
     )
 };

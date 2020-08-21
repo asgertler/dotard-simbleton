@@ -1,3 +1,27 @@
+.business-list {
+    background-color: lightblue;
+    padding: 25px;
+}
+
 .business-list-entry {
+    border-bottom: 1px solid black;
+}
+
+.business-list-newYork {
+    background-color: lightcoral;
+    padding: 25px;
+}
+
+.business-list-manufacturing {
+    background-color: lightgreen;
+    padding: 25px;
+}
+
+.agent-list {
+    background-color: lightslategrey;
+    padding: 25px;
+}
+
+.agent-list-entry {
     border-bottom: 1px solid black;
 }

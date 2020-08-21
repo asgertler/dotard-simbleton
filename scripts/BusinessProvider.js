@@ -120,3 +120,15 @@ export const newYorkBusinesses = businesses.filter(busObj => busObj.addressState
 
 // Manufacturing Businesses
 export const manufacturingBusinesses = businesses.filter(busObj => busObj.companyIndustry === "Manufacturing");
+
+// Purchasing Agents
+
+
+export const agentNames = businesses.map(busObj => {
+  const agentObj = {
+    fullName: busObj.purchasingAgent.nameFirst + " " + busObj.purchasingAgent.nameLast,
+    company: busObj.companyName,
+    phoneNumber: busObj.phoneWork
+  }
+  return agentObj
+});
