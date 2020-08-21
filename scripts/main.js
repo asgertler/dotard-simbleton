@@ -1,7 +1,7 @@
 import {BusinessList} from "./BusinessList.js";
-import {NYBusinessList} from "./BusinessList.js";
-import {ManufacturingBusinessList} from "./BusinessList.js";
+import {NYBusinessList, ManufacturingBusinessList, AgentList} from "./BusinessList.js";
 
 BusinessList();
 NYBusinessList();
 ManufacturingBusinessList();
+AgentList();
