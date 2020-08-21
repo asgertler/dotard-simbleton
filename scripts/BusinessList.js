@@ -49,3 +49,34 @@ export const AgentList = () => {
         }
     )
 };
+
+const companySearchResultArticle = document.querySelector(".foundCompanies")
+
+document
+    .querySelector("#companySearch")
+    .addEventListener("keypress", keyPressEvent => {
+        if (keyPressEvent.charCode === 13) {
+
+            const searchArray = useBusinesses();
+
+            const foundBusiness = searchArray.find(business => {
+                return business.companyName.includes(keyPressEvent.target.value)
+            });
+            console.log(foundBusiness);
+
+            companySearchResultArticle.innerHTML = `
+                <h2>
+                ${foundBusiness.companyName}
+                </h2>
+                <section>
+                ${foundBusiness.addressFullStreet}
+
+                </section>
+                <section>
+                ${foundBusiness.addressCity},
+                ${foundBusiness.addressStateCode}
+                ${foundBusiness.addressZipCode}
+                </section>
+            `;
+        }
+    });
